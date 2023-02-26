@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Assets/css/parsley.css">
+    <title>CRUD</title>
+</head>
+
+<body>
+    <div class="container mt-3" style="border: 1px solid black; height: 60vh;">
+        <div class="row" style="background-color: rgb(47, 47, 160); color: white;">
+            <h2 >Student</h2>
+        </div>
+        
+        <div class="mb-2 mt-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_model">
+                <i class="fa fa-plus">  </i>  Add Student
+            </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Enrollment No</th>
+                        <th>Email</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="table_body">
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="modal" id="add_model">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Student</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form id="add_user">
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="mb-3 mt-3">
+                                <label for="id" class="form-label">Id:</label>
+                                <input type="number" class="form-control" id="id" min="1" placeholder="Enter Id" name="id"
+                                data-parsley-errors-container="#error" data-parsley-required-message="Id is required"  required>
+                            </div>
+                            <span  id="error"></span>
+
+                            <div class="mb-3 mt-1">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name"
+                                data-parsley-errors-container="#errorname" data-parsley-required-message="Name is required"  required>
+                            </div>
+                            <span  id="errorname"></span>
+
+                            <div class="mb-3 mt-3">
+                                <label for="enrollment_no" class="form-label">Enrollment Number:</label>
+                                <input type="number" class="form-control" id="enrollment_no" min="0" placeholder="Enter Enrollment Number"
+                                data-parsley-errors-container="#errornumber" data-parsley-required-message="Number is required" name="enrollment_no" required>
+                            </div>
+                            <span  id="errornumber"></span>
+
+                            <div class="mb-3 mt-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email"
+                                data-parsley-errors-container="#erroremail" data-parsley-required-message="Email is required"  name="email" required>
+                            </div>
+                            <span  id="erroremail"></span>
+
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" value="Submit" name="Submit">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="edit_model">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Student</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form id="update_user">
+                        <input type="hidden" name="index" id="index">
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="mb-3 mt-3">
+                                <label for="id" class="form-label">Id:</label>
+                                <input type="number" class="form-control" id="id" min="1" placeholder="Enter Id" name="id"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name"
+                                    required>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="enrollment_no" class="form-label">Enrollment Number:</label>
+                                <input type="number" class="form-control" id="enrollment_no" min="0" placeholder="Enter Enrollment Number"
+                                    name="enrollment_no" required>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email"
+                                    name="email" required>
+                            </div>
+
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" value="Update" name="Update">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="Assets/js/jquery.min.js"></script>
+    <script src="Assets/js/parsley.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="Assets/js/script.js"></script>
+</body>
+
+</html>
